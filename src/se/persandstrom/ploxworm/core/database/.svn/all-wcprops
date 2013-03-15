@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/dev/!svn/ver/89/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database
+END
+DbConnector.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/dev/!svn/ver/89/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/DbConnector.java
+END
+StorageInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/dev/!svn/ver/89/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/StorageInterface.java
+END
+LevelHighscore.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/dev/!svn/ver/69/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/LevelHighscore.java
+END
+DbOperations.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/dev/!svn/ver/89/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/DbOperations.java
+END
+PreferencesInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/dev/!svn/ver/89/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/PreferencesInterface.java
+END
+ScoreObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/dev/!svn/ver/69/trunk/PloxWorm/src/se/persandstrom/ploxworm/core/database/ScoreObject.java
+END

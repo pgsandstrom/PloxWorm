@@ -1,0 +1,74 @@
+10
+
+dir
+89
+https://sandstrom.svn.beanstalkapp.com/dev/trunk/PloxWorm
+https://sandstrom.svn.beanstalkapp.com/dev
+
+
+
+2012-04-05T09:53:20.703784Z
+89
+sandstrom
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9978f3d7-75ca-4a92-a463-f1826a53b834
+
+AndroidManifest.xml
+file
+
+
+
+
+2013-03-15T12:47:16.752000Z
+6b5bfc961f4e2b994166d852088f15bc
+2012-04-05T09:53:20.703784Z
+89
+sandstrom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1405
+
+assets
+dir
+
+gen
+dir
+
+res
+dir
+
+src
+dir
+

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/dev/!svn/ver/89/trunk/PloxWorm/res/layout
+END
+multiplayer_setup.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/dev/!svn/ver/89/trunk/PloxWorm/res/layout/multiplayer_setup.xml
+END
+game_board.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/dev/!svn/ver/69/trunk/PloxWorm/res/layout/game_board.xml
+END
+start_menu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/dev/!svn/ver/88/trunk/PloxWorm/res/layout/start_menu.xml
+END
+game_menu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/dev/!svn/ver/53/trunk/PloxWorm/res/layout/game_menu.xml
+END
+game_picker_list_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/dev/!svn/ver/89/trunk/PloxWorm/res/layout/game_picker_list_item.xml
+END
+game_picker_list.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/dev/!svn/ver/89/trunk/PloxWorm/res/layout/game_picker_list.xml
+END

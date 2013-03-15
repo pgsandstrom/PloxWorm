@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 75
+default.properties
+proguard.cfg
+.classpath
+.project
+project.properties
+bin
+
+END
