@@ -1,10 +1,10 @@
 package se.persandstrom.ploxworm.core.database;
 
-import se.persandstrom.ploxworm.Constant;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
+import se.persandstrom.ploxworm.Constant;
 
 /**
  * Is accessed through the StorageInterface

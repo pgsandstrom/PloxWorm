@@ -1,13 +1,13 @@
 package se.persandstrom.ploxworm;
 
-import se.persandstrom.ploxworm.campaign.PickGameActivity;
-import se.persandstrom.ploxworm.core.Core;
-import se.persandstrom.ploxworm.core.GameController;
-import se.persandstrom.ploxworm.core.GameView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import se.persandstrom.ploxworm.campaign.PickGameActivity;
+import se.persandstrom.ploxworm.core.Core;
+import se.persandstrom.ploxworm.core.GameController;
+import se.persandstrom.ploxworm.view.GameView;
 
 /**
  * The main screen

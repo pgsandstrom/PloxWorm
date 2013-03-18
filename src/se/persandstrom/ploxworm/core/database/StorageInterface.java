@@ -1,14 +1,13 @@
 package se.persandstrom.ploxworm.core.database;
 
-import java.util.ArrayList;
-
-import se.persandstrom.ploxworm.core.worm.board.BoardManager;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
+import se.persandstrom.ploxworm.core.worm.board.BoardManager;
+
+import java.util.ArrayList;
 
 public class StorageInterface {
 

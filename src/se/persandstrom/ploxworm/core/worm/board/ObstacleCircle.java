@@ -1,9 +1,6 @@
 package se.persandstrom.ploxworm.core.worm.board;
 
 import se.persandstrom.ploxworm.core.Line;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
 
 
 public class ObstacleCircle implements Obstacle {
@@ -15,8 +12,6 @@ public class ObstacleCircle implements Obstacle {
 
 	public final float radius;
 
-	private RectF rectF;
-
 	public ObstacleCircle(float positionX, float positionY, float radius) {
 		this.positionX = positionX;
 		this.positionY = positionY;
@@ -26,8 +21,8 @@ public class ObstacleCircle implements Obstacle {
 
 	@Override
 	public boolean isCollide(Line line) {
-		float xStop = line.xStop;
-		float yStop = line.yStop;
+		double xStop = line.xStop;
+		double yStop = line.yStop;
 
 		float distance = (float) Math.sqrt(Math.pow(positionX - xStop, 2) + Math.pow(positionY - yStop, 2));
 		//if (Constant.DEBUG) Log.d(TAG, "distance:" + distance);
@@ -38,12 +33,4 @@ public class ObstacleCircle implements Obstacle {
 		}
 	}
 
-	@Override
-	public void onDraw(Canvas canvas, float xNormalizer, float yNormalizer, Paint paint) {
-		if (rectF == null) {
-			rectF = new RectF((positionX - radius) * xNormalizer, (positionY - radius) * yNormalizer,
-					(positionX + radius) * xNormalizer, (positionY + radius) * yNormalizer);
-		}
-		canvas.drawOval(rectF, paint);
-	}
 }

@@ -1,10 +1,10 @@
 package se.persandstrom.ploxworm.mp.bluetooth;
 
-import se.persandstrom.ploxworm.R;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
 import android.view.View;
+import se.persandstrom.ploxworm.R;
 
 public class BlueToothSetup extends Activity implements View.OnClickListener{
 	

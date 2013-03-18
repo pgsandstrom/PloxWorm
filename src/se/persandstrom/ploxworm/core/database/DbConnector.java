@@ -1,13 +1,12 @@
 package se.persandstrom.ploxworm.core.database;
 
-import se.persandstrom.ploxworm.Constant;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.util.Log;
+import se.persandstrom.ploxworm.Constant;
 
 /**
  * The DBConnector class enables program integration with a SQLite database. Only communicate with this class through

@@ -1,8 +1,6 @@
 package se.persandstrom.ploxworm.core.worm.board;
 
 import se.persandstrom.ploxworm.core.Line;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 
 public class ObstacleRectangle implements Obstacle {
 
@@ -22,8 +20,8 @@ public class ObstacleRectangle implements Obstacle {
 
 	@Override
 	public boolean isCollide(Line line) {
-		float xStop = line.xStop;
-		float yStop = line.yStop;
+		double xStop = line.xStop;
+		double yStop = line.yStop;
 
 		if (xStop > left && xStop < right && yStop > top && yStop < bottom) {
 			return true;
@@ -32,9 +30,5 @@ public class ObstacleRectangle implements Obstacle {
 		}
 	}
 
-	@Override
-	public void onDraw(Canvas canvas, float xNormalizer, float yNormalizer, Paint paint) {
 
-		canvas.drawRect(left * xNormalizer, top * yNormalizer, right * xNormalizer, bottom * yNormalizer, paint);
-	}
 }

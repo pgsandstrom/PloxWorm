@@ -1,12 +1,11 @@
 package se.persandstrom.ploxworm.core.worm.board;
 
-import java.util.ArrayList;
-
 import se.persandstrom.ploxworm.core.Core;
-import se.persandstrom.ploxworm.core.GameView;
 import se.persandstrom.ploxworm.core.worm.HumanWorm;
 import se.persandstrom.ploxworm.core.worm.Worm;
 import se.persandstrom.ploxworm.core.worm.ai.StupidWorm;
+
+import java.util.ArrayList;
 
 public class BoardManager {
 
@@ -75,7 +74,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);
@@ -108,7 +107,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);
@@ -138,7 +137,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);
@@ -174,7 +173,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);
@@ -213,7 +212,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);
@@ -244,7 +243,7 @@ public class BoardManager {
 		float startSpeedX = 1;
 		float startSpeedY = 1;
 
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		//computer: 
@@ -253,7 +252,7 @@ public class BoardManager {
 		startSpeedX = 1;
 		startSpeedY = 1;
 
-		wormList.add(new StupidWorm(core, GameView.wormPaints[1], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new StupidWorm(core, 1, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		startPositionX = 400;
@@ -335,14 +334,14 @@ public class BoardManager {
 		float startPositionY = 300;
 		float startSpeedX = 1;
 		float startSpeedY = 0;
-		wormList.add(new HumanWorm(core, GameView.wormPaints[0], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new HumanWorm(core, 0, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		startPositionX = 550;
 		startPositionY = 550;
 		startSpeedX = 1;
 		startSpeedY = 0;
-		wormList.add(new StupidWorm(core, GameView.wormPaints[1], startPositionX, startPositionY, startSpeedX,
+		wormList.add(new StupidWorm(core, 1, startPositionX, startPositionY, startSpeedX,
 				startSpeedY));
 
 		return new Board(core, title, wormList, obstacleList, appleList, xSize, ySize, appleEatGoal, appleVisibleAtOnce);

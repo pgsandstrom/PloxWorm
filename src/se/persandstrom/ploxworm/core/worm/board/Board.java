@@ -1,13 +1,10 @@
 package se.persandstrom.ploxworm.core.worm.board;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import se.persandstrom.ploxworm.Constant;
 import se.persandstrom.ploxworm.core.Core;
 import se.persandstrom.ploxworm.core.worm.Worm;
 
-import android.util.Log;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Board {
 
@@ -93,7 +90,7 @@ public class Board {
 
 			//check so the apple does not exist, and also that it is not the apple that was just eaten
 			if (!apple.exists) {
-				if (Constant.DEBUG) Log.d(TAG, "adding apple:" + apple.positionX);
+//				if (Constant.DEBUG) Log.d(TAG, "adding apple:" + apple.positionX);
 				apple.exists = true;
 				if (!hasPlacedGoldApple && applesEaten >= appleEatGoal) {
 					apple.isGold = true;

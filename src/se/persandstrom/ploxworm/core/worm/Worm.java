@@ -1,16 +1,12 @@
 package se.persandstrom.ploxworm.core.worm;
 
-import java.util.ArrayList;
-
-import se.persandstrom.ploxworm.Constant;
 import se.persandstrom.ploxworm.core.Core;
 import se.persandstrom.ploxworm.core.Line;
 import se.persandstrom.ploxworm.core.worm.board.Apple;
 import se.persandstrom.ploxworm.core.worm.board.Board;
 import se.persandstrom.ploxworm.core.worm.board.Obstacle;
 
-import android.graphics.Paint;
-import android.util.Log;
+import java.util.ArrayList;
 
 public abstract class Worm {
 
@@ -27,23 +23,24 @@ public abstract class Worm {
 
 	Core core;
 
-	public final Paint paint;
+	//is actually just a number, like 0,1,2
+	public final int color;
 
 	int maxLength = INITIAL_LENGTH;
 
 	//positions
-	public float xPosStart;
-	public float yPosStart;
-	public float xPos;
-	public float yPos;
-	float xPosOld;
-	float yPosOld;
+	public double xPosStart;
+	public double yPosStart;
+	public double xPos;
+	public double yPos;
+    double xPosOld;
+    double yPosOld;
 
 	//the worms current direction is this vector:
-	public float xForceStart;
-	public float yForceStart;
-	public float xForce;
-	public float yForce;
+	public double xForceStart;
+	public double yForceStart;
+	public double xForce;
+	public double yForce;
 
 	//board size
 	float boardSizeX;
@@ -56,10 +53,10 @@ public abstract class Worm {
 
 	public boolean isAlive;
 
-	public Worm(Core core, Paint paint, float startPositionX, float startPositionY, float startSpeedX, float startSpeedY) {
+	public Worm(Core core, int color, double startPositionX, double startPositionY, double startSpeedX, double startSpeedY) {
 
 		this.core = core;
-		this.paint = paint;
+		this.color = color;
 
 		xPosStart = startPositionX;
 		yPosStart = startPositionY;
@@ -86,7 +83,7 @@ public abstract class Worm {
 		this.appleList = board.getApples();
 		boardSizeX = board.getXSize();
 		boardSizeY = board.getYSize();
-		if (Constant.DEBUG) Log.d(TAG, "obstacleList:" + obstacleList.size());
+//		if (Constant.DEBUG) Log.d(TAG, "obstacleList:" + obstacleList.size());
 	}
 
 	public ArrayList<Line> getLineList() {
@@ -145,7 +142,7 @@ public abstract class Worm {
 	}
 
 	public void reset() {
-		if (Constant.DEBUG) Log.d(TAG, "reset");
+//		if (Constant.DEBUG) Log.d(TAG, "reset");
 		xPos = xPosStart;
 		yPos = yPosStart;
 		xPosOld = xPos;
@@ -210,28 +207,28 @@ public abstract class Worm {
 	}
 
 	protected Line makeLine(float speed, boolean updateWormPosition) {
-		float xQuota;
-		float xAbs = Math.abs(xForce);
-		float yAbs = Math.abs(yForce);
+        double xQuota;
+		double xAbs = Math.abs(xForce);
+        double yAbs = Math.abs(yForce);
 
 		xQuota = xAbs / (xAbs + yAbs);
 
-		float yQuota = 1 - xQuota;
+        double yQuota = 1 - xQuota;
 
-		float xChange = speed * xQuota;
+        double xChange = speed * xQuota;
 		if (xForce < 0) {
 			xChange *= -1;
 		}
-		float yChange = speed * yQuota;
+        double yChange = speed * yQuota;
 		if (yForce < 0) {
 			yChange *= -1;
 		}
 
-		float xPosOldTemp = xPos;
-		float yPosOldTemp = yPos;
+        double xPosOldTemp = xPos;
+        double yPosOldTemp = yPos;
 
-		float xPosTemp = xPos + xChange;
-		float yPosTemp = yPos + yChange;
+        double xPosTemp = xPos + xChange;
+        double yPosTemp = yPos + yChange;
 
 		//fix if the worm has crossed the board boarders
 		if (xPosOldTemp > boardSizeX) {

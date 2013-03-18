@@ -1,7 +1,5 @@
 package se.persandstrom.ploxworm.core;
 
-import android.hardware.SensorEvent;
-
 public abstract class AccelerometerInterface {
 
 	// Accelerometer variables:

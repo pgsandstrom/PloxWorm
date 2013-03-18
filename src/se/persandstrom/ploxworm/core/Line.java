@@ -3,18 +3,18 @@ package se.persandstrom.ploxworm.core;
 public class Line {
 
     //start:
-    public final float xStart;
-    public final float yStart;
+    public final double xStart;
+    public final double yStart;
 
     //stop:
-    public final float xStop;
-    public final float yStop;
+    public final double xStop;
+    public final double yStop;
 
     //func:
-    public final float a;
-    public final float c;
+    public final double a;
+    public final double c;
 
-    public Line(float xStart, float yStart, float xStop, float yStop) {
+    public Line(double xStart, double yStart, double xStop, double yStop) {
         this.xStart = xStart;
         this.yStart = yStart;
         this.xStop = xStop;

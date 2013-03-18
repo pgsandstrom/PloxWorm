@@ -1,16 +1,14 @@
 package se.persandstrom.ploxworm;
 
-import java.util.List;
-
-import se.persandstrom.ploxworm.core.AccelerometerInterface;
-
-import android.R.xml;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import se.persandstrom.ploxworm.core.AccelerometerInterface;
+
+import java.util.List;
 
 public class AccelerometerManager {
 

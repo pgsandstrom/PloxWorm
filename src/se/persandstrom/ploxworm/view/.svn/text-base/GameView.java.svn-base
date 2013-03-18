@@ -155,7 +155,7 @@ public class GameView extends View {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
-	public void render() {
+	public void forceInvalidated() {
 		postInvalidate(0, 0, getWidth(), getHeight());
 	}
 }

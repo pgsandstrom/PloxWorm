@@ -1,15 +1,12 @@
 package se.persandstrom.ploxworm.core;
 
-import java.util.ArrayList;
-
 import se.persandstrom.ploxworm.core.worm.HumanWorm;
 import se.persandstrom.ploxworm.core.worm.Worm;
 import se.persandstrom.ploxworm.core.worm.ai.StupidWorm;
 import se.persandstrom.ploxworm.core.worm.board.Board;
 import se.persandstrom.ploxworm.core.worm.board.BoardManager;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Message;
+
+import java.util.ArrayList;
 
 public class Core extends AccelerometerInterface {
 
@@ -18,10 +15,6 @@ public class Core extends AccelerometerInterface {
 	// point related constants
 	private static final int POINTS_APPLE = 50;
 	private static final int POINTS_VICTORY = 500;
-
-	// handler constants:
-	private static final int HANDLER_REFRESH_SCORE_BOARD = 0;
-	private static final int HANDLER_SHOW_DEATH = 1;
 
 	final GameController gameController;
 
@@ -46,16 +39,6 @@ public class Core extends AccelerometerInterface {
 	// resurrect on death and never spawn gold apple
 	private boolean eternalGame = false;
 
-	/**
-	 * 
-	 * @param gameController
-	 * @param gameView
-	 *            the view holding the actual game
-	 * @param scoreBoard
-	 *            the view that shows the score
-	 * @param titleView
-	 * @param messageView
-	 */
 	private Core(GameController gameController) {
 		this.gameController = gameController;
 	}
@@ -86,7 +69,7 @@ public class Core extends AccelerometerInterface {
 
 		gameController.setTitle(board.title);
 
-		new StartCountDownThread().execute();
+		new StartCountDownThread().start();
 	}
 
 	public void startGame() {
@@ -101,7 +84,7 @@ public class Core extends AccelerometerInterface {
 
 		gameController.setTitle(board.title);
 
-		new StartCountDownThread().execute();
+		new StartCountDownThread().start();
 	}
 
 	private void setAiCounter(ArrayList<Worm> wormList) {
@@ -138,16 +121,13 @@ public class Core extends AccelerometerInterface {
 		stop();
 
 		if (waitBeforeExiting) {
-			sendToHandler(HANDLER_SHOW_DEATH);
-			new DeathCountDownThread().execute();
+			gameController.endWithWait(score);
 		} else {
-			end();
+			gameController.end(score);
+
 		}
 	}
 
-	private void end() {
-		gameController.end(score);
-	}
 
 	/**
 	 * Moves the gameworld one tic forward!
@@ -198,7 +178,7 @@ public class Core extends AccelerometerInterface {
 
 	private void increaseScore(int newScore) {
 		score += newScore;
-		sendToHandler(HANDLER_REFRESH_SCORE_BOARD);
+		gameController.updateScore(score);
 	}
 
 	@Override
@@ -209,28 +189,7 @@ public class Core extends AccelerometerInterface {
 		this.yAcc = yAcc;
 	}
 
-	public void sendToHandler(int what) {
-		Message msg = new Message();
-		msg.what = what;
-		handler.sendMessage(msg);
-	}
-
-	Handler handler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-//			if (Constant.DEBUG)
-//				Log.d(TAG, "handleMessage: " + msg.what);
-			switch (msg.what) {
-			case HANDLER_REFRESH_SCORE_BOARD:
-				gameController.setScoreBoard(String.valueOf(score));
-				break;
-			case HANDLER_SHOW_DEATH:
-				gameController.showMessage();
-				gameController.setMessage("Death!");
-				break;
-			}
-		}
-	};
+	
 
 	public void backPress() {
 		death(false);
@@ -259,67 +218,68 @@ public class Core extends AccelerometerInterface {
 		}
 	}
 
-	private class StartCountDownThread extends AsyncTask<Void, Integer, Void> {
+//	private class StartCountDownThread extends AsyncTask<Void, Integer, Void> {
+//
+//		private static final int STEP_WAITING_TIME = 300;
+//
+//		int countSteps = 3;
+//
+//		public StartCountDownThread() {
+//		}
+//
+//		@Override
+//		protected Void doInBackground(Void... params) {
+//
+//			do {
+//				publishProgress(countSteps);
+//				try {
+//					Thread.sleep(STEP_WAITING_TIME);
+//				} catch (InterruptedException quiet) {
+//				}
+//				countSteps--;
+//			} while (countSteps > 0);
+//
+//			return null;
+//		}
+//
+//		@Override
+//		protected void onProgressUpdate(Integer... values) {
+//			gameController.setMessage(String.valueOf(values[0]));
+//		}
+//
+//		@Override
+//		protected void onPostExecute(Void result) {
+//			gameController.hideTitle();
+//			gameController.hideMessage();
+//
+//			go();
+//		}
+//	}
 
-		private static final int STEP_WAITING_TIME = 300;
+    private class StartCountDownThread extends Thread {
+        private static final int STEP_WAITING_TIME = 300;
 
-		int countSteps = 3;
+        int countSteps = 3;
 
-		public StartCountDownThread() {
-		}
+        @Override
+        public void run() {
+            do {
+                gameController.setMessage(""+countSteps);
+                try {
+                    Thread.sleep(STEP_WAITING_TIME);
+                } catch (InterruptedException quiet) {
+                }
+                countSteps--;
+            } while (countSteps > 0);
 
-		@Override
-		protected Void doInBackground(Void... params) {
+            gameController.hideTitle();
+            gameController.hideMessage();
 
-			do {
-				publishProgress(countSteps);
-				try {
-					Thread.sleep(STEP_WAITING_TIME);
-				} catch (InterruptedException quiet) {
-				}
-				countSteps--;
-			} while (countSteps > 0);
+            go();
+        }
+    }
 
-			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(Integer... values) {
-			gameController.setMessage(String.valueOf(values[0]));
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			gameController.hideTitle();
-			gameController.hideMessage();
-
-			go();
-		}
-	}
-
-	private class DeathCountDownThread extends AsyncTask<Void, Integer, Void> {
-
-		private static final int STEP_WAITING_TIME = 750;
-
-		public DeathCountDownThread() {
-		}
-
-		@Override
-		protected Void doInBackground(Void... params) {
-
-			try {
-				Thread.sleep(STEP_WAITING_TIME);
-			} catch (InterruptedException quiet) {
-			}
-
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			end();
-		}
-	}
+	
 
 	/**
 	 * Builder class
@@ -395,7 +355,7 @@ public class Core extends AccelerometerInterface {
 			for (int i = 0; i < wormList.size(); i++) {
 				Worm worm = wormList.get(i);
 				if (worm instanceof HumanWorm) {
-					StupidWorm stupidWorm = new StupidWorm(core, worm.paint,
+					StupidWorm stupidWorm = new StupidWorm(core, worm.color,
 							worm.xPos, worm.yPos, worm.xForce, worm.yForce);
 					stupidWorm.init(worm.board);
 					wormList.remove(i);

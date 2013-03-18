@@ -2,15 +2,14 @@ package se.persandstrom.ploxworm.core.worm.ai;
 
 import se.persandstrom.ploxworm.core.Core;
 import se.persandstrom.ploxworm.core.worm.ComputerWorm;
-import android.graphics.Paint;
 
 public class StupidWorm extends ComputerWorm {
 
 	protected static final String TAG = "StupidWorm";
 
-	public StupidWorm(Core core, Paint paint, float startPositionX, float startPositionY, float startSpeedX,
-			float startSpeedY) {
-		super(core, paint, startPositionX, startPositionY, startSpeedX, startSpeedY);
+	public StupidWorm(Core core, int color, double startPositionX, double startPositionY, double startSpeedX,
+			double startSpeedY) {
+		super(core, color, startPositionX, startPositionY, startSpeedX, startSpeedY);
 	}
 
 	@Override

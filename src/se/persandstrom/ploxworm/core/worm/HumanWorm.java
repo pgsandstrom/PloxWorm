@@ -1,18 +1,15 @@
 package se.persandstrom.ploxworm.core.worm;
 
-import se.persandstrom.ploxworm.Constant;
 import se.persandstrom.ploxworm.core.Core;
-import android.graphics.Paint;
-import android.util.Log;
 
 public class HumanWorm extends Worm {
 
 	protected static final String TAG = "HumanWorm";
 
-	public HumanWorm(Core core, Paint paint, float startPositionX, float startPositionY, float startSpeedX,
+	public HumanWorm(Core core, int color, float startPositionX, float startPositionY, float startSpeedX,
 			float startSpeedY) {
-		super(core, paint, startPositionX, startPositionY, startSpeedX, startSpeedY);
-		if (Constant.DEBUG) Log.d(TAG, "HumanWorm created");
+		super(core, color, startPositionX, startPositionY, startSpeedX, startSpeedY);
+//		if (Constant.DEBUG) Log.d(TAG, "HumanWorm created");
 	}
 
 	@Override
@@ -70,8 +67,8 @@ public class HumanWorm extends Worm {
 			}
 		}
 
-		xForce = android.util.FloatMath.cos(wormDegree);
-		yForce = android.util.FloatMath.sin(wormDegree);
+		xForce = Math.cos(wormDegree);
+		yForce = Math.sin(wormDegree);
 
 	}
 

@@ -1,11 +1,5 @@
 package se.persandstrom.ploxworm.campaign;
 
-import java.util.ArrayList;
-
-import se.persandstrom.ploxworm.Constant;
-import se.persandstrom.ploxworm.R;
-import se.persandstrom.ploxworm.core.database.LevelHighscore;
-import se.persandstrom.ploxworm.core.database.StorageInterface;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import se.persandstrom.ploxworm.Constant;
+import se.persandstrom.ploxworm.R;
+import se.persandstrom.ploxworm.core.database.LevelHighscore;
+import se.persandstrom.ploxworm.core.database.StorageInterface;
+
+import java.util.ArrayList;
 
 public class PickGameActivity extends Activity implements View.OnClickListener {
 
