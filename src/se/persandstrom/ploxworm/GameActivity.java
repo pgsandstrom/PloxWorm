@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.WindowManager;
 import android.widget.TextView;
-import se.persandstrom.ploxworm.core.AccelerometerInterface;
 import se.persandstrom.ploxworm.core.Core;
 import se.persandstrom.ploxworm.core.GameController;
 import se.persandstrom.ploxworm.view.GameView;
@@ -54,8 +53,8 @@ public class GameActivity extends Activity {
 		int level = getIntent().getIntExtra(INTENT_EXTRA_START_LEVEL, 1);
 		long points = getIntent().getLongExtra(INTENT_EXTRA_POINTS, 0);
 
-		Core.Builder builder = new Core.Builder(new GameController(this,
-				gameView, scoreBoard, titleView, messageView));
+        AndroidGameController gameController = new AndroidGameController(this, gameView, scoreBoard, titleView, messageView);
+        Core.Builder builder = new Core.Builder(gameController);
 
 		builder.setLevel(level);
 		builder.setScore(points);
@@ -65,7 +64,7 @@ public class GameActivity extends Activity {
 		gameCore = builder.build();
 		gameCore.startGame();
 
-		initAccelerometer(this, gameCore);
+		initAccelerometer(this, gameController);
 
 		// gameCore = new Core(this, gameView, scoreBoard, titleView,
 		// messageView);

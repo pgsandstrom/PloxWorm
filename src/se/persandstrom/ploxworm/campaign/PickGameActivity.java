@@ -15,8 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import se.persandstrom.ploxworm.Constant;
 import se.persandstrom.ploxworm.R;
-import se.persandstrom.ploxworm.core.database.LevelHighscore;
-import se.persandstrom.ploxworm.core.database.StorageInterface;
+import se.persandstrom.ploxworm.database.LevelHighscore;
+import se.persandstrom.ploxworm.database.StorageInterface;
 
 import java.util.ArrayList;
 

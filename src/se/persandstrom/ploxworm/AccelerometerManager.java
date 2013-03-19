@@ -6,7 +6,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import se.persandstrom.ploxworm.core.AccelerometerInterface;
 
 import java.util.List;
 

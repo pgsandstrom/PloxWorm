@@ -1,4 +1,4 @@
-package se.persandstrom.ploxworm.core.database;
+package se.persandstrom.ploxworm.database;
 
 import android.content.ContentValues;
 import android.content.Context;

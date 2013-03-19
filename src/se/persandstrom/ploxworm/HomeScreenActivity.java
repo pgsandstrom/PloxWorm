@@ -31,7 +31,7 @@ public class HomeScreenActivity extends Activity implements View.OnClickListener
 
 	private void setupBackgroundGame() {
 		GameView gameView = (GameView) findViewById(R.id.gameview);
-		Core.Builder builder = new Core.Builder(new GameController(this, gameView, null, null, null));
+		Core.Builder builder = new Core.Builder(new AndroidGameController(this, gameView, null, null, null));
 		builder.setLevel(7);
 		builder.setMakePlayersToAi(true);
 		builder.setEternalGame(true);

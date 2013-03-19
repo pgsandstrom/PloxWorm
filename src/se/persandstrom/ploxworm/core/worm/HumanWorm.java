@@ -16,8 +16,8 @@ public class HumanWorm extends Worm {
 	protected void fixDirection() {
 
 		// get the acceleration from the device:
-		float xAcc = core.xAcc;
-		float yAcc = core.yAcc;
+		float xAcc = core.getXacc(this);
+		float yAcc = core.getYacc(this);
 
 		float wormDegree = (float) Math.atan2(yForce, xForce);
 		if (wormDegree < 0) {

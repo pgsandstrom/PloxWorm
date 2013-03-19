@@ -1,5 +1,6 @@
 package se.persandstrom.ploxworm.core.worm.board;
 
+import android.util.Log;
 import se.persandstrom.ploxworm.core.Core;
 import se.persandstrom.ploxworm.core.worm.HumanWorm;
 import se.persandstrom.ploxworm.core.worm.Worm;
@@ -14,7 +15,16 @@ public class BoardManager {
 	public final static int TOTAL_LEVELS = 7;
 
 	public static Board getBoard(Core core, int level) {
-		//		level = TOTAL_LEVELS;
+
+        if(level == 0) {
+            Log.e(TAG, "wtf not level 0 again...");
+            level = 1;
+            //XXX
+            //TODO
+            //FIXME
+            //TODO fixa också att level-namn inte visas...
+        }
+
 		Board board;
 		switch (level) {
 		case 1:
